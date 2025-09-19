@@ -1,167 +1,277 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photography Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>حلول Space Management للتخزين والرفوف - جودة وقوة تحمل عالية</title>
     <style>
+        /* CSS داخلي لتنسيق بسيط وجذاب */
+        :root {
+            --primary-color: #004d99; /* أزرق داكن (لون صناعي) */
+            --secondary-color: #ff9900; /* برتقالي (للتأكيد) */
+            --light-bg: #f4f4f4;
+            --text-color: #333;
+        }
+
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f7fafc;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            color: var(--text-color);
+            line-height: 1.6;
+            direction: rtl; /* لضمان التوجيه الصحيح للعربية */
+            text-align: right;
         }
-        .gallery-image {
-            transition: transform 0.3s ease-in-out;
+
+        /* تنسيق الرأس (Header) */
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        .gallery-image:hover {
-            transform: scale(1.05);
+
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: var(--secondary-color);
+        }
+        
+        /* تنسيق الأقسام العامة */
+        section {
+            padding: 60px 5%;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        h2 {
+            text-align: center;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--secondary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* قسم البطل (Hero Section) */
+        #hero {
+            background: var(--light-bg);
+            text-align: center;
+            padding: 100px 5%;
+        }
+
+        #hero h1 {
+            font-size: 40px;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        #hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: #cc7a00; /* لون أغمق عند المرور */
+        }
+
+        /* قسم المنتجات والخدمات */
+        .products-grid, .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .product-item, .feature-item {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-item h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* قسم لماذا نحن */
+        #why-us {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        #why-us h2 {
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .feature-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        /* تنسيق التذييل (Footer) */
+        footer {
+            background-color: var(--text-color);
+            color: var(--light-bg);
+            padding: 30px 5%;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 5px 0;
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
-    <!-- Header & Hero Section -->
-    <header class="relative h-screen flex items-center justify-center text-white text-center">
-        <img src="https://placehold.co/1920x1080/000000/FFFFFF?text=Stunning+Photography" alt="Hero Background" class="absolute inset-0 w-full h-full object-cover z-0 filter brightness-75">
-        <div class="relative z-10 p-6 sm:p-10 bg-black bg-opacity-40 rounded-xl shadow-lg m-4">
-            <h1 class="text-4xl sm:text-6xl font-extrabold mb-2 leading-tight">Your Name Photography</h1>
-            <p class="text-lg sm:text-xl font-light">Capturing moments, creating memories.</p>
-        </div>
+    <header>
+        <a href="#hero" class="logo">Space Management</a>
+        <nav>
+            <a href="#products">المنتجات</a>
+            <a href="#services">الخدمات</a>
+            <a href="#why-us">لماذا نحن</a>
+            <a href="#contact">تواصل معنا</a>
+        </nav>
     </header>
 
-    <!-- Navigation -->
-    <nav class="sticky top-0 z-50 bg-white shadow-lg py-4">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-gray-900">Portfolio</a>
-            <div class="flex space-x-4 sm:space-x-8">
-                <a href="#about" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">About</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Portfolio</a>
-                <a href="#contact" class="text-gray-600 hover:text-gray-900 transition-colors duration-300">Contact</a>
-            </div>
+    <section id="hero">
+        <div class="container">
+            <h1>أقصى استغلال للمساحة بأقوى أنظمة التخزين</h1>
+            <p>نحن نصنع حلول الرفوف والمستودعات المصممة خصيصًا لتحمل أعلى الأوزان وضمان سلامة مخزونك.</p>
+            <a href="#contact" class="cta-button">اطلب عرض سعر مجاني الآن</a>
         </div>
-    </nav>
+    </section>
 
-    <main class="container mx-auto px-4 py-12 sm:py-20">
-
-        <!-- About Me Section -->
-        <section id="about" class="mb-12 sm:mb-20">
-            <div class="flex flex-col md:flex-row items-center md:space-x-12">
-                <div class="md:w-1/2 mb-8 md:mb-0">
-                    <img src="https://placehold.co/800x600/6B46C1/FFFFFF?text=Your+Headshot" alt="Your Headshot" class="rounded-xl shadow-2xl w-full h-auto object-cover">
-                </div>
-                <div class="md:w-1/2">
-                    <h2 class="text-3xl sm:text-4xl font-bold mb-4">About Me</h2>
-                    <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                        Hello! My name is [Your Name], and I am a passionate photographer based in [Your City]. My journey in photography began [Number] years ago, and I specialize in [Your Specialty, e.g., portrait, landscape, or event] photography.
-                    </p>
-                    <p class="text-lg text-gray-700 leading-relaxed">
-                        I believe that every photo tells a unique story. My goal is to capture genuine emotions and preserve fleeting moments in time. I love working with natural light and finding the beauty in everyday life. Let's create something beautiful together.
-                    </p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="mb-12 sm:mb-20">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-10">My Portfolio</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Gallery Item 1 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                    <img src="https://placehold.co/800x600/3182CE/FFFFFF?text=Landscape" alt="Portfolio Image 1" class="w-full h-full object-cover gallery-image">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Landscape Photography</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 2 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                    <img src="https://placehold.co/800x600/4C51BF/FFFFFF?text=Portrait" alt="Portfolio Image 2" class="w-full h-full object-cover gallery-image">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Portrait Photography</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 3 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                    <img src="https://placehold.co/800x600/6B46C1/FFFFFF?text=Wedding" alt="Portfolio Image 3" class="w-full h-full object-cover gallery-image">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Wedding Photography</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 4 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                    <img src="https://placehold.co/800x600/805AD5/FFFFFF?text=Nature" alt="Portfolio Image 4" class="w-full h-full object-cover gallery-image">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Nature Photography</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 5 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                    <img src="https://placehold.co/800x600/D53F8C/FFFFFF?text=Travel" alt="Portfolio Image 5" class="w-full h-full object-cover gallery-image">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Travel Photography</p>
-                    </div>
-                </div>
-                <!-- Gallery Item 6 -->
-                <div class="group relative overflow-hidden rounded-xl shadow-lg">
-                    <img src="https://placehold.co/800x600/ED8936/FFFFFF?text=Architecture" alt="Portfolio Image 6" class="w-full h-full object-cover gallery-image">
-                    <div class="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <p class="text-white text-lg font-semibold">Architectural Photography</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Form Section -->
-        <section id="contact" class="bg-white p-8 sm:p-12 rounded-xl shadow-2xl max-w-2xl mx-auto">
-            <h2 class="text-3xl sm:text-4xl font-bold text-center mb-8">Get In Touch</h2>
-            <form action="#" method="POST" class="space-y-6">
-                <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500">
-                </div>
-                <div>
-                    <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500">
-                </div>
-                <div>
-                    <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                    <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-2 bg-gray-50 border border-gray-300 rounded-md focus:ring-purple-500 focus:border-purple-500"></textarea>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="w-full sm:w-auto px-8 py-3 bg-purple-600 text-white font-semibold rounded-full shadow-lg hover:bg-purple-700 transition-colors duration-300">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-            <div id="statusMessage" class="mt-4 text-center hidden"></div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8 mt-12 sm:mt-20">
-        <div class="container mx-auto px-4 text-center">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const contactForm = document.getElementById('contact');
-            const statusMessage = document.getElementById('statusMessage');
-
-            contactForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                statusMessage.textContent = 'Form submission is disabled in this demo. The form fields have been reset.';
-                statusMessage.classList.remove('hidden');
-                statusMessage.classList.add('text-green-500');
+    <section id="products">
+        <div class="container">
+            <h2>منتجاتنا الأساسية</h2>
+            <div class="products-grid">
                 
-                // Reset form fields
-                contactForm.reset();
-            });
-        });
-    </script>
+                <div class="product-item">
+                    <h3>رفوف التحميل الخفيف (Light Duty)</h3>
+                    <p>مثالية للملفات والأرشيف وقطع الغيار الصغيرة. سهلة التجميع والتركيب.</p>
+                    <p>قدرة تحميل: 100 - 250 كجم/رف.</p>
+                </div>
+
+                <div class="product-item">
+                    <h3>رفوف التحميل المتوسط (Medium Duty)</h3>
+                    <p>للمستودعات الصغيرة والمتوسطة والمنصات اليدوية. مرونة عالية وقوة تحمل ممتازة.</p>
+                    <p>قدرة تحميل: 300 - 800 كجم/رف.</p>
+                </div>
+                
+                <div class="product-item">
+                    <h3>أنظمة الباليت الثقيلة (Heavy Duty Racking)</h3>
+                    <p>حلول الباليت التخصصية لمراكز التوزيع الكبرى (Selective, Drive-In). </p>
+                    <p>قدرة تحميل: حتى 3000 كجم/مستوى.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background-color: var(--light-bg);">
+        <div class="container">
+            <h2>خدماتنا وميزاتنا التنافسية</h2>
+            <div class="products-grid">
+                
+                <div class="product-item">
+                    <h3>تصنيع محلي بجودة عالمية</h3>
+                    <p>منتجاتنا مصنعة من أجود أنواع الصلب المقاوم للصدأ ومطابقة للمعايير الصناعية.</p>
+                </div>
+                
+                <div class="product-item">
+                    <h3>استشارات تخطيط المستودعات</h3>
+                    <p>فريقنا يقدم تحليل مجاني للمساحة لتصميم أفضل توزيع لزيادة كفاءة التخزين.</p>
+                </div>
+
+                <div class="product-item">
+                    <h3>التوريد والتركيب السريع</h3>
+                    <p>نضمن تسليم وتركيب حلول التخزين الخاصة بك في الوقت المحدد لضمان بدء التشغيل بسرعة.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="why-us">
+        <div class="container">
+            <h2 style="text-align: right; display: block; width: 100%;">لماذا تختار حلولنا؟</h2>
+            <div class="features-grid">
+                
+                <div class="feature-item">
+                    <h3>ضمان الجودة والمتانة</h3>
+                    <p>نقدم ضمانًا على متانة الإطارات ومقاومة الدهان للصدأ والتقشير.</p>
+                </div>
+
+                <div class="feature-item">
+                    <h3>تصميم مرن وقابل للتعديل</h3>
+                    <p>أنظمتنا مصممة للتكيف مع نمو مخزونك وتغير احتياجاتك المستقبلية.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <h3>أسعار تنافسية مباشرة من المصنع</h3>
+                    <p>بصفتنا جهة مصنعة، نضمن لك أفضل سعر مقابل أعلى جودة.</p>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="container">
+            <h2>تواصل معنا</h2>
+            <p style="text-align: center;">لطلب عرض سعر أو استشارة مجانية، يرجى التواصل عبر:</p>
+            <p style="text-align: center; font-size: 18px; font-weight: bold;">
+                الهاتف: 01080529372 | البريد الإلكتروني: Mohamed.hosnyacc@SM.com
+                <br>
+                الموقع الإلكتروني: www.sm.com
+            </p>
+            <p style="text-align: center; margin-top: 30px;">
+                <a href="mailto:Mohamed.hosnyacc@SM.com" class="cta-button" style="background-color: var(--primary-color);">إرسال استفسار عبر الإيميل</a>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Space Management. جميع الحقوق محفوظة.</p>
+        <p>حلول متكاملة للرفوف والتخزين الصناعي.</p>
+    </footer>
 
 </body>
 </html>
-
